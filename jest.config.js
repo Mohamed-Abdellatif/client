@@ -11,5 +11,6 @@ export default {
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '^react-i18next$': '<rootDir>/__mocks__/react-i18next.ts',
   },
 };
