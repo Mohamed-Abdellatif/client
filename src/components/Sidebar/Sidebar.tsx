@@ -18,6 +18,7 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 import SchoolIcon from "@mui/icons-material/School";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 import CampaignIcon from "@mui/icons-material/Campaign";
+import { useTranslation } from "react-i18next";
 const drawerWidth = 200;
 
 interface SidebarProps {
@@ -26,12 +27,12 @@ interface SidebarProps {
 }
 
 const sidebarItems = [
-  { text: "Dashboard", icon: <HouseIcon /> },
-  { text: "Schedule", icon: <CalendarMonthIcon /> },
-  { text: "Courses", icon: <MenuBookIcon /> },
-  { text: "Gradebook", icon: <SchoolIcon /> },
-  { text: "Performance", icon: <AutoGraphIcon /> },
-  { text: "Announcement", icon: <CampaignIcon /> },
+  { text: "dashboard", icon: <HouseIcon /> },
+  { text: "schedule", icon: <CalendarMonthIcon /> },
+  { text: "courses", icon: <MenuBookIcon /> },
+  { text: "gradebook", icon: <SchoolIcon /> },
+  { text: "performance", icon: <AutoGraphIcon /> },
+  { text: "announcement", icon: <CampaignIcon /> },
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -40,12 +41,13 @@ const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const { t } = useTranslation();
 
   const drawerContent = (
     <>
       <Box sx={{ px: 2, py: 1, mx: 1 }}>
         <Typography variant="h5" sx={{ color: "white" }}>
-          Coligo
+          {t("coligo")}
         </Typography>
       </Box>
       <List>
@@ -67,7 +69,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                 {icon}
               </ListItemIcon>
               <ListItemText
-                primary={text}
+                primary={t(text)}
                 slotProps={{
                   primary: {
                     sx: {

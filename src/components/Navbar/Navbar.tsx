@@ -20,7 +20,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../store/store";
 import { logout } from "../../features/auth/AuthSlice/authSlice";
-
+import { useTranslation } from "react-i18next";
 const drawerWidth = 200;
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -71,6 +71,7 @@ const Navbar: React.FC<NavbarProps> = ({ handleDrawerToggle }) => {
   const dispatch = useDispatch<AppDispatch>();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const { t} = useTranslation();
 
   // State for mobile dropdown menu
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -119,7 +120,7 @@ const Navbar: React.FC<NavbarProps> = ({ handleDrawerToggle }) => {
             transition: "font-size 0.2s",
           }}
         >
-          Welcome, Talia
+          {t("welcome")}
         </Typography>
 
         {/* Only show these on desktop */}
@@ -138,7 +139,7 @@ const Navbar: React.FC<NavbarProps> = ({ handleDrawerToggle }) => {
               </SearchIconWrapper>
               <StyledInputBase
                 sx={{ color: "black", borderColor: "black" }}
-                placeholder="Search…"
+                placeholder={t("search_placeholder")}
                 inputProps={{ "aria-label": "search" }}
               />
             </Search>
@@ -148,7 +149,7 @@ const Navbar: React.FC<NavbarProps> = ({ handleDrawerToggle }) => {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <IconButton size="large" color="inherit" sx={{ color: "#42899e" }}>
+            <IconButton size="large" color="inherit" sx={{ color: "#42899e" }} >
               <Badge badgeContent={4} color="error">
                 <MailIcon />
               </Badge>
@@ -196,7 +197,7 @@ const Navbar: React.FC<NavbarProps> = ({ handleDrawerToggle }) => {
                   </SearchIconWrapper>
                   <StyledInputBase
                     sx={{ color: "black", borderColor: "black" }}
-                    placeholder="Search…"
+                    placeholder={t("search_placeholder")}
                     inputProps={{ "aria-label": "search" }}
                   />
                 </Search>
@@ -205,16 +206,16 @@ const Navbar: React.FC<NavbarProps> = ({ handleDrawerToggle }) => {
                 <Badge badgeContent={10} color="error" sx={{ mr: 1 }}>
                   <NotificationsIcon sx={{ color: "#42899e" }} />
                 </Badge>
-                Notifications
+                {t("notifications")}
               </MenuItem>
               <MenuItem onClick={handleMenuClose}>
                 <Badge badgeContent={4} color="error" sx={{ mr: 1 }}>
                   <MailIcon sx={{ color: "#42899e" }} />
                 </Badge>
-                Mail
+                {t("mail")}
               </MenuItem>
               <MenuItem onClick={handleLogout}>
-                <AccountCircle sx={{ color: "#42899e", mr: 1 }} /> Account
+                <AccountCircle sx={{ color: "#42899e", mr: 1 }} /> {t("account")}
               </MenuItem>
             </Menu>
           </>

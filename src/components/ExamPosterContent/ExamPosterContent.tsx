@@ -1,14 +1,15 @@
 import { Box, Button, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const ExamPosterContent = () => {
+  const { t } = useTranslation();
   return (
     <>
       <Typography variant="h4" fontWeight="bold" color="primary" gutterBottom>
-        EXAMS TIME
+        {t("exams_time")}
       </Typography>
       <Typography variant="subtitle1" color="textSecondary" gutterBottom>
-        Here we are. Are you ready to fight? Don’t worry, we prepared some tips
-        to be ready for your exams.
+        {t("exams_time_subtitle")}
       </Typography>
       <Typography
         variant="body2"
@@ -16,11 +17,11 @@ const ExamPosterContent = () => {
         fontStyle="italic"
         gutterBottom
       >
-        “Nothing happens until something moves.” – Albert Einstein
+        {t("exams_time_quote")}
       </Typography>
       <Box mt={2}>
         <Button variant="contained" color="primary" size="large">
-          View exams tips
+          {t("view_exams_tips")}
         </Button>
       </Box>
     </>

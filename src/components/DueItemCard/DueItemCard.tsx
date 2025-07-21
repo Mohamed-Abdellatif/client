@@ -1,4 +1,5 @@
 import { Box, Button, Divider, ListItem, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const DueItemCard = ({
   dueItemsLength,
@@ -9,6 +10,7 @@ const DueItemCard = ({
   item: any;
   idx: number;
 }) => {
+  const { t } = useTranslation();
   return (
     <>
       <ListItem
@@ -20,7 +22,7 @@ const DueItemCard = ({
           {item.type}
         </Typography>
         <Typography variant="body2" color="textSecondary">
-          Course: {item.course}
+          {t("course")} {item.course}
         </Typography>
         {item.details && (
           <Typography variant="body2" color="textSecondary">
@@ -28,11 +30,11 @@ const DueItemCard = ({
           </Typography>
         )}
         <Typography variant="caption" color="textSecondary">
-          Due: {item.due}
+          {t("due")} {item.due}
         </Typography>
         <Box mt={1}>
           <Button variant="outlined" size="small">
-            {item.action}
+            {t(item.action === "Start Quiz" ? "start_quiz" : "solve_assignment")}
           </Button>
         </Box>
       </ListItem>

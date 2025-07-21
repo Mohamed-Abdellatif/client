@@ -1,6 +1,7 @@
 import { Paper, Typography, List } from "@mui/material";
 
 import AnnouncmentCard from "../../../components/AnnouncmentCard/AnnouncmentCard";
+import { useTranslation } from "react-i18next";
 
 const announcements = [
   {
@@ -38,10 +39,11 @@ const announcements = [
 ];
 
 const AnnouncementsList = () => {
+  const { t } = useTranslation();
   return (
     <Paper elevation={3} sx={{ p: 2, minHeight: 350 }}>
       <Typography variant="h6" fontWeight="bold" gutterBottom>
-        Announcements
+        {t("announcements")}
       </Typography>
       <List>
         {announcements.map((announcment, idx) => (

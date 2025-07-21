@@ -4,8 +4,10 @@ import type { RootState, AppDispatch } from "../../../store/store";
 import { login } from "../AuthSlice/authSlice";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import { useTranslation } from "react-i18next";
 
 const LoginForm = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
   const { loading, error, isLoggedIn } = useSelector(
     (state: RootState) => state.auth
@@ -26,11 +28,11 @@ const LoginForm = () => {
   return (
     <>
       <Button onClick={handleLogin} disabled={loading} variant="contained">
-        {loading ? <CircularProgress size={24} /> : "Login"}
+        {loading ? <CircularProgress size={24} /> : t("login_button")}
       </Button>
       {error && (
         <Typography color="error" mt={2}>
-          {error}
+          {t("login_failed")}
         </Typography>
       )}
     </>
