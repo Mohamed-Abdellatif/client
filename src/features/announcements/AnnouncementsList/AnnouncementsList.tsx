@@ -1,5 +1,6 @@
-import { Paper, Typography, List } from "@mui/material";
-
+import { Paper, Typography } from "@mui/material";
+import GenericList from "../../../components/GenericList/GenericList";
+import GenericCard from "../../../components/GenericCard/GenericCard";
 import AnnouncmentCard from "../../../components/AnnouncmentCard/AnnouncmentCard";
 import { useTranslation } from "react-i18next";
 
@@ -45,16 +46,14 @@ const AnnouncementsList = () => {
       <Typography variant="h6" fontWeight="bold" gutterBottom>
         {t("announcements")}
       </Typography>
-      <List>
-        {announcements.map((announcment, idx) => (
-          <AnnouncmentCard
-            key={announcment.id}
-            announcementsLength={announcements.length}
-            announcment={announcment}
-            idx={idx}
-          />
-        ))}
-      </List>
+      <GenericList
+        items={announcements}
+        renderItem={(announcment, idx, arr) => (
+          <GenericCard key={announcment.id} showDivider={idx < arr.length - 1} dividerProps={{ variant: "inset" }}>
+            <AnnouncmentCard announcment={announcment} />
+          </GenericCard>
+        )}
+      />
     </Paper>
   );
 };

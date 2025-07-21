@@ -1,4 +1,6 @@
-import { Paper, Typography, List } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
+import GenericList from "../../../components/GenericList/GenericList";
+import GenericCard from "../../../components/GenericCard/GenericCard";
 import DueItemCard from "../../../components/DueItemCard/DueItemCard";
 import { useTranslation } from "react-i18next";
 
@@ -24,20 +26,22 @@ const dueItems = [
 const DueList = () => {
   const { t } = useTranslation();
   return (
-    <Paper elevation={3} sx={{ p: 2, minHeight: 350 }}>
+    <Paper elevation={3} sx={{ p: 2, minHeight: 300 }}>
       <Typography variant="h6" fontWeight="bold" gutterBottom>
         {t("whats_due")}
       </Typography>
-      <List>
-        {dueItems.map((item, idx) => (
-          <DueItemCard
+      <GenericList
+        items={dueItems}
+        renderItem={(item, idx, arr) => (
+          <GenericCard
             key={item.id}
-            dueItemsLength={dueItems.length}
-            item={item}
-            idx={idx}
-          />
-        ))}
-      </List>
+            showDivider={idx < arr.length - 1}
+            listItemProps={{ sx: { flexDirection: 'column', alignItems: 'flex-start' } }}
+          >
+            <DueItemCard item={item} />
+          </GenericCard>
+        )}
+      />
     </Paper>
   );
 };
