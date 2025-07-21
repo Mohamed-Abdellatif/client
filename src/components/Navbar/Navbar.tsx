@@ -16,12 +16,9 @@ import type { AppDispatch } from "../../store/store";
 import { logout } from "../../features/auth/AuthSlice/authSlice";
 import { useTranslation } from "react-i18next";
 import SearchBar from "../SearchBar/SearchBar";
+import type { NavbarProps } from '../../types';
 
 const drawerWidth = 200;
-
-interface NavbarProps {
-  handleDrawerToggle: () => void;
-}
 
 const Navbar: React.FC<NavbarProps> = ({ handleDrawerToggle }) => {
   const dispatch = useDispatch<AppDispatch>();

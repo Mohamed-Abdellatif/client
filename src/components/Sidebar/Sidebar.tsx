@@ -19,12 +19,8 @@ import SchoolIcon from "@mui/icons-material/School";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import { useTranslation } from "react-i18next";
+import type { SidebarProps } from '../../types';
 const drawerWidth = 200;
-
-interface SidebarProps {
-  mobileOpen: boolean;
-  handleDrawerToggle: () => void;
-}
 
 const sidebarItems = [
   { text: "dashboard", icon: <HouseIcon /> },

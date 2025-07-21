@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk, type PayloadAction, type ActionReducerMapBuilder } from '@reduxjs/toolkit';
+import type { AuthState } from '../../../types';
 
 // Mock async login function (replace with real API call)
 export const login = createAsyncThunk(
@@ -10,13 +11,6 @@ export const login = createAsyncThunk(
     return { username: credentials.username };
   }
 );
-
-interface AuthState {
-  isLoggedIn: boolean;
-  user: null | { username: string };
-  loading: boolean;
-  error: string | null;
-}
 
 const initialState: AuthState = {
   isLoggedIn: false,

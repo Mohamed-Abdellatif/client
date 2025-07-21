@@ -1,5 +1,6 @@
 import { Box, Button, Divider, ListItem, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import type { DueItem } from '../../types';
 
 const DueItemCard = ({
   dueItemsLength,
@@ -7,7 +8,7 @@ const DueItemCard = ({
   idx,
 }: {
   dueItemsLength: number;
-  item: any;
+  item: DueItem;
   idx: number;
 }) => {
   const { t } = useTranslation();

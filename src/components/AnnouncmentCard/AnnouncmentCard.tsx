@@ -1,7 +1,8 @@
 import { Avatar, Divider, ListItem, ListItemAvatar, ListItemText } from '@mui/material'
+import type { Announcement } from '../../types';
 
 
-const AnnouncmentCard = ({announcementsLength,announcment, idx}: {announcementsLength: number, announcment: any, idx: number}) => {
+const AnnouncmentCard = ({ announcment, announcementsLength, idx }: { announcment: Announcement; announcementsLength: number; idx: number }) => {
   return (
     < >
             <ListItem alignItems="flex-start" >
