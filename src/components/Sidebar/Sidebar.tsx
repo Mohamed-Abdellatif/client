@@ -55,18 +55,13 @@ const Sidebar: React.FC<SidebarProps> = ({
             disablePadding
             sx={{
               marginTop: 2,
-              ...(index === 0 && {
-                backgroundColor: "white",
-              }),
             }}
           >
-            <ListItemButton>
+            <ListItemButton className={index === 0 ? "active-link" : undefined}>
               <ListItemIcon
                 sx={{
                   minWidth: 40,
-                  ...(index === 0
-                    ? { color: "#064d75" } // solid fallback of gradient
-                    : { color: "white" }),
+                  color: "white",
                 }}
               >
                 {icon}
@@ -75,18 +70,9 @@ const Sidebar: React.FC<SidebarProps> = ({
                 primary={text}
                 slotProps={{
                   primary: {
-                    sx:
-                      index === 0
-                        ? {
-                            background:
-                              "linear-gradient(to bottom, #064d75, #2c8ebf)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            fontWeight: 600,
-                          }
-                        : {
-                            color: "white",
-                          },
+                    sx: {
+                      color: "white",
+                    },
                   },
                 }}
               />

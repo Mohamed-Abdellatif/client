@@ -1,0 +1,24 @@
+.bg-blue .MuiDrawer-paper {
+  background: linear-gradient(to bottom, #064d75, #2c8ebf);
+}
+
+.active-link {
+  background: white !important;
+}
+.active-link .MuiListItemIcon-root,
+.active-link .MuiListItemText-primary {
+  color: #064d75 !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+}
+
+/* Sidebar link hover: background and foreground become white */
+.bg-blue .MuiListItemButton-root:hover {
+  background: white !important;
+}
+.bg-blue .MuiListItemButton-root:hover .MuiListItemIcon-root,
+.bg-blue .MuiListItemButton-root:hover .MuiListItemText-primary {
+  color: #064d75 !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+}
