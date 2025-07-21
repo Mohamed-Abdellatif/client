@@ -18,7 +18,7 @@ const GenericCard: React.FC<GenericCardProps> = ({
     <ListItem alignItems="flex-start" {...listItemProps}>
       {children}
     </ListItem>
-    {showDivider && <Divider {...dividerProps} />}
+    {showDivider && <Divider data-testid="divider" {...dividerProps} />}
   </>
 );
 

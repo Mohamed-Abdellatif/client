@@ -2,6 +2,7 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import AnnouncmentCard from './AnnouncmentCard';
+import GenericCard from '../GenericCard/GenericCard';
 
 describe('AnnouncmentCard', () => {
   const mockAnnouncment = {
@@ -14,7 +15,7 @@ describe('AnnouncmentCard', () => {
 
   it('renders announcement details correctly', () => {
     render(
-      <AnnouncmentCard announcment={mockAnnouncment} announcementsLength={2} idx={0} />
+      <AnnouncmentCard announcment={mockAnnouncment} />
     );
     expect(screen.getByText('John Doe')).toBeInTheDocument();
     expect(screen.getByText('Math')).toBeInTheDocument();
@@ -23,14 +24,18 @@ describe('AnnouncmentCard', () => {
 
   it('renders divider when not last item', () => {
     render(
-      <AnnouncmentCard announcment={mockAnnouncment} announcementsLength={2} idx={0} />
+      <GenericCard showDivider>
+        <AnnouncmentCard announcment={mockAnnouncment} />
+      </GenericCard>
     );
     expect(screen.getByTestId('divider')).toBeInTheDocument();
   });
 
   it('does not render divider for last item', () => {
     render(
-      <AnnouncmentCard announcment={mockAnnouncment} announcementsLength={2} idx={1} />
+      <GenericCard showDivider={false}>
+        <AnnouncmentCard announcment={mockAnnouncment} />
+      </GenericCard>
     );
     expect(screen.queryByTestId('divider')).not.toBeInTheDocument();
   });
