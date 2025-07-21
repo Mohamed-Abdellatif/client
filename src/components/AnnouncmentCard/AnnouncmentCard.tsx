@@ -14,7 +14,7 @@ const AnnouncmentCard = ({ announcment, announcementsLength, idx }: { announcmen
                 secondary={announcment.message}
               />
             </ListItem>
-            {idx < announcementsLength - 1 && <Divider variant="inset" component="li" />}
+            {idx < announcementsLength - 1 && <Divider data-testid="divider" variant="inset" component="li" />}
           </>
   )
 }

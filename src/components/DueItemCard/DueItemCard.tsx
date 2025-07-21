@@ -39,7 +39,7 @@ const DueItemCard = ({
           </Button>
         </Box>
       </ListItem>
-      {idx < dueItemsLength - 1 && <Divider component="li" />}
+      {idx < dueItemsLength - 1 && <Divider data-testid="divider" component="li" />}
     </>
   );
 };
