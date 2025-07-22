@@ -1,3 +1,13 @@
 .login-form-error {
   margin-top: 16px !important;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }

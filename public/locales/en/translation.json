@@ -27,5 +27,9 @@
   "noAnnouncements": "No announcements available",
   "noDueItems": "No due items available",
   "all": "All",
-  "topic": "Topic:"
+  "topic": "Topic:",
+  "test_password": "Test Password:",
+  "test_email": "Test Email:",
+  "email": "Email",
+  "password": "Password"
 }

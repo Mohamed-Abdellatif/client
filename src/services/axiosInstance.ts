@@ -1,13 +1,11 @@
 import axios from "axios";
-import { auth } from "./api";
 import { getApiBaseUrl } from "../config/apiBaseUrl";
 
 const API_BASE_URL = getApiBaseUrl();
 
-// Function to get the token asynchronously
-const getToken = async () => {
-  const token = await auth.login({ email: "a@sad.com", password: "dsazxczcz" });
-  return token;
+// Function to get the token synchronously from localStorage
+const getToken = () => {
+  return localStorage.getItem("token");
 };
 
 const axiosInstance = axios.create({
@@ -15,9 +13,8 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(
-  async (config) => {
-    // <-- make this async to await token
-    const token = await getToken(); // await here
+  (config) => {
+    const token = getToken();
     if (token) {
       config.headers = config.headers ?? {};
       config.headers.Authorization = `Bearer ${token}`;
