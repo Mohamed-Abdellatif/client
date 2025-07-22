@@ -1,17 +1,6 @@
 import "./Sidebar.css";
 import React from "react";
-import {
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Box,
-  useTheme,
-  useMediaQuery,
-  Typography,
-} from "@mui/material";
+import { Drawer, Box, useTheme, useMediaQuery } from "@mui/material";
 import HouseIcon from "@mui/icons-material/House";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
@@ -19,7 +8,8 @@ import SchoolIcon from "@mui/icons-material/School";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import { useTranslation } from "react-i18next";
-import type { SidebarProps } from '../../types';
+import type { SidebarProps } from "../../types";
+import SidebarList from "./SidebarList";
 const drawerWidth = 200;
 
 const sidebarItems = [
@@ -38,48 +28,6 @@ const Sidebar: React.FC<SidebarProps> = ({
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { t } = useTranslation();
-
-  const drawerContent = (
-    <>
-      <Box sx={{ px: 2, py: 1, mx: 1 }}>
-        <Typography variant="h5" sx={{ color: "white" }}>
-          {t("coligo")}
-        </Typography>
-      </Box>
-      <List>
-        {sidebarItems.map(({ text, icon }, index) => (
-          <ListItem
-            key={text}
-            disablePadding
-            sx={{
-              marginTop: 2,
-            }}
-          >
-            <ListItemButton className={index === 0 ? "active-link" : undefined}>
-              <ListItemIcon
-                sx={{
-                  minWidth: 40,
-                  color: "white",
-                }}
-              >
-                {icon}
-              </ListItemIcon>
-              <ListItemText
-                primary={t(text)}
-                slotProps={{
-                  primary: {
-                    sx: {
-                      color: "white",
-                    },
-                  },
-                }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </>
-  );
 
   return (
     <Box
@@ -101,7 +49,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             },
           }}
         >
-          {drawerContent}
+          <SidebarList sidebarItems={sidebarItems} t={t} />
         </Drawer>
       )}
 
@@ -118,7 +66,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         }}
         open
       >
-        {drawerContent}
+        <SidebarList sidebarItems={sidebarItems} t={t} />
       </Drawer>
     </Box>
   );
