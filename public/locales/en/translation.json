@@ -25,5 +25,7 @@
   "solve_assignment": "Solve Assignment",
   "announcements": "Announcements",
   "noAnnouncements": "No announcements available",
-  "noDueItems": "No due items available"
-} 
+  "noDueItems": "No due items available",
+  "all": "All",
+  "topic": "Topic:"
+}
