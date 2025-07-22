@@ -10,9 +10,25 @@ import LoadingPaper from "../../../components/LoadingPaper/LoadingPaper";
 import NoDataPaper from "../../../components/NoDataPaper/NoDataPaper";
 import "./AnnouncementsList.scss";
 
+import { useEffect } from 'react';
+import { useSocket } from "../../../socket/useSocket";
+
 const AnnouncementsList = () => {
-  const { data: announcements, isLoading } = useAnnouncementQuery();
+  const { data: announcements, isLoading, refetch } = useAnnouncementQuery();
   const { t } = useTranslation();
+  const socket = useSocket();
+
+  useEffect(() => {
+    if (!socket) return;
+    const handleNewAnnouncement = () => {
+      refetch();
+    };
+    socket.on('announcement:new', handleNewAnnouncement);
+    return () => {
+      socket.off('announcement:new', handleNewAnnouncement);
+    };
+  }, [socket, refetch]);
+
   if (isLoading) {
     return <LoadingPaper />;
   }
