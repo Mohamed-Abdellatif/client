@@ -16,9 +16,9 @@ import type { AppDispatch } from "../../store/store";
 import { logout } from "../../features/auth/AuthSlice/authSlice";
 import { useTranslation } from "react-i18next";
 import SearchBar from "../SearchBar/SearchBar";
-import type { NavbarProps } from '../../types';
-
-const drawerWidth = 200;
+import type { NavbarProps } from "../../types";
+import "./Navbar.scss";
+import { drawerWidth } from "../../utils/constants";
 
 const Navbar: React.FC<NavbarProps> = ({ handleDrawerToggle }) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -42,11 +42,11 @@ const Navbar: React.FC<NavbarProps> = ({ handleDrawerToggle }) => {
   return (
     <AppBar
       position="fixed"
+      className="navbar-appbar"
       sx={{
         width: { md: `calc(100% - ${drawerWidth}px)` },
         ml: { md: `${drawerWidth}px` },
         zIndex: (theme) => theme.zIndex.drawer + 1,
-        background: "white",
       }}
     >
       <Toolbar>
@@ -64,14 +64,8 @@ const Navbar: React.FC<NavbarProps> = ({ handleDrawerToggle }) => {
           variant="h4"
           noWrap
           component="div"
-          sx={{
-            flexGrow: 1,
-            textAlign: "start",
-            color: "#757c79",
-            fontWeight: 600,
-            fontSize: { xs: "1.1rem", sm: "1.3rem", md: "2rem" },
-            transition: "font-size 0.2s",
-          }}
+          className="navbar-title"
+          sx={{ fontSize: { xs: "1.1rem", sm: "1.3rem", md: "2rem" } }}
         >
           {t("welcome")}
         </Typography>
@@ -101,7 +95,7 @@ const Navbar: React.FC<NavbarProps> = ({ handleDrawerToggle }) => {
             <IconButton
               size="large"
               color="inherit"
-              sx={{ color: "#42899e" }}
+              className="navbar-icon"
               onClick={handleLogout}
             >
               <AccountCircle />

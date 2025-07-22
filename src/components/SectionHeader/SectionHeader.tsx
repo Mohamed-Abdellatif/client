@@ -1,4 +1,5 @@
 import { Box, Typography, Button } from "@mui/material";
+import "./SectionHeader.scss";
 
 interface SectionHeaderProps {
   title: string;
@@ -16,12 +17,7 @@ export default function SectionHeader({
   mb = 2,
 }: SectionHeaderProps) {
   return (
-    <Box
-      display="flex"
-      justifyContent="space-between"
-      alignItems="center"
-      mb={mb}
-    >
+    <Box className="section-header" mb={mb}>
       <Typography variant="h6" fontWeight="bold">
         {title}
       </Typography>
@@ -29,19 +25,7 @@ export default function SectionHeader({
         <Button
           variant="text"
           onClick={onButtonClick}
-          sx={{
-            color: "#84bab1",
-            background: "none",
-            border: "none",
-            textTransform: "none",
-            fontWeight: 600,
-            fontSize: 18,
-            padding: 0,
-            minWidth: 0,
-            "&:hover": {
-              background: "transparent",
-            },
-          }}
+          className="section-header__button"
           {...buttonProps}
         >
           {buttonText}

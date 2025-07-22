@@ -1,0 +1,22 @@
+.navbar-appbar {
+  background: white !important;
+}
+
+.navbar-title {
+  flex-grow: 1;
+  text-align: start;
+  color: #757c79;
+  font-weight: 600;
+  transition: font-size 0.2s;
+}
+
+.navbar-searchbar {
+  color: #757c79 !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 8px !important;
+  margin-right: 16px !important;
+}
+
+.navbar-icon {
+  color: #42899e !important;
+}

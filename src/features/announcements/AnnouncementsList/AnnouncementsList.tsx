@@ -7,7 +7,8 @@ import { useAnnouncementQuery } from "../../../queries/useAnnouncementsQuery";
 import type { Announcement } from "../../../types";
 import SectionHeader from "../../../components/SectionHeader/SectionHeader";
 import LoadingPaper from "../../../components/LoadingPaper/LoadingPaper";
-import NoDataPaper from '../../../components/NoDataPaper/NoDataPaper';
+import NoDataPaper from "../../../components/NoDataPaper/NoDataPaper";
+import "./AnnouncementsList.scss";
 
 const AnnouncementsList = () => {
   const { data: announcements, isLoading } = useAnnouncementQuery();
@@ -16,14 +17,12 @@ const AnnouncementsList = () => {
     return <LoadingPaper />;
   }
   if (!announcements || announcements.length === 0) {
-    return (
-      <NoDataPaper message={t('noAnnouncements')} minHeight={300} />
-    );
+    return <NoDataPaper message={t("noAnnouncements")} minHeight={300} />;
   }
 
   return (
-    <Paper elevation={3} sx={{ p: 2, minHeight: 300 }}>
-      <SectionHeader title={t("announcements")} buttonText={t("all")} mb={2}/>
+    <Paper elevation={3} className="announcements-list-paper">
+      <SectionHeader title={t("announcements")} buttonText={t("all")} mb={2} />
 
       <GenericList
         items={announcements}

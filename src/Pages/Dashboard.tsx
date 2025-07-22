@@ -3,10 +3,11 @@ import Box from "@mui/material/Box";
 import ExamsPoster from "../features/posters/ExamsPoster/ExamsPoster";
 import AnnouncementsList from "../features/announcements/AnnouncementsList/AnnouncementsList";
 import DueList from "../features/quizzes/DueList/DueList";
+import "./Dashboard.scss";
 
 const Dashboard = () => {
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box className="dashboard-root">
       {/* Poster full width */}
       <Box mb={3}>
         <ExamsPoster />

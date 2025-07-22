@@ -1,20 +1,10 @@
 import { Paper } from "@mui/material";
 import ExamPosterContent from "../../../components/ExamPosterContent/ExamPosterContent";
+import "./ExamsPoster.scss";
 
 const ExamsPoster = () => {
   return (
-    <Paper
-      elevation={3}
-      sx={{
-        p: 3,
-        minHeight: 200,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "flex-start",
-        background: "#f8fcff",
-      }}
-    >
+    <Paper elevation={3} className="exams-poster-paper">
       <ExamPosterContent />
     </Paper>
   );

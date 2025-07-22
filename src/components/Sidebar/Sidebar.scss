@@ -12,7 +12,6 @@
   -webkit-background-clip: initial !important;
 }
 
-/* Sidebar link hover: background and foreground become white */
 .bg-blue .MuiListItemButton-root:hover {
   background: white !important;
 }
@@ -21,4 +20,35 @@
   color: #064d75 !important;
   background-clip: initial !important;
   -webkit-text-fill-color: initial !important;
+}
+
+.sidebar-nav {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.sidebar-title {
+  text-align: center;
+  color: white !important;
+}
+
+.sidebar-list-root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar-list-item {
+  margin-top: 16px !important;
+  transition: color 0.9s ease-in-out;
+}
+
+.sidebar-list-icon {
+  min-width: 40px !important;
+  color: white !important;
+}
+
+.sidebar-list-text {
+  color: white !important;
 }

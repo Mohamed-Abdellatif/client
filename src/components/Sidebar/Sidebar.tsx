@@ -1,4 +1,4 @@
-import "./Sidebar.css";
+import "./Sidebar.scss";
 import React from "react";
 import { Drawer, Box, useTheme, useMediaQuery } from "@mui/material";
 import HouseIcon from "@mui/icons-material/House";
@@ -9,8 +9,8 @@ import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import { useTranslation } from "react-i18next";
 import type { SidebarProps } from "../../types";
-import SidebarList from "./SidebarList";
-const drawerWidth = 200;
+import SidebarList from "../SidebarList/SidebarList";
+import { drawerWidth } from "../../utils/constants";
 
 const sidebarItems = [
   { text: "dashboard", icon: <HouseIcon /> },
@@ -32,6 +32,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <Box
       component="nav"
+      className="sidebar-nav"
       sx={{ width: { md: drawerWidth }, flexShrink: { md: 0 } }}
     >
       {/* Mobile drawer */}

@@ -2,6 +2,7 @@ import React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import "./SearchBar.scss";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -49,17 +50,21 @@ interface SearchBarProps {
   sx?: any;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ placeholder, inputProps, sx }) => (
-  <Search sx={sx}>
+const SearchBar: React.FC<SearchBarProps> = ({
+  placeholder,
+  inputProps,
+  sx,
+}) => (
+  <Search sx={sx} className="search-bar">
     <SearchIconWrapper>
       <SearchIcon />
     </SearchIconWrapper>
     <StyledInputBase
-      sx={{ color: "black", borderColor: "black" }}
+      className="search-bar"
       placeholder={placeholder}
       inputProps={inputProps}
     />
   </Search>
 );
 
-export default SearchBar; 
+export default SearchBar;

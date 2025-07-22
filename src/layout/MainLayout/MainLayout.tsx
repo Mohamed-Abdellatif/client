@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Box, Toolbar } from "@mui/material";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
-
+import "./MainLayout.scss";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -13,24 +13,14 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box className="main-layout-root">
       <Navbar handleDrawerToggle={handleDrawerToggle} />
       <Sidebar
         mobileOpen={mobileOpen}
         handleDrawerToggle={handleDrawerToggle}
       />
 
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          minWidth: 0,
-          width: "100%",
-          pt: { xs: "24px", md: "24px" }, 
-          px: 3,
-          pb: 3,
-        }}
-      >
+      <Box component="main" className="main-layout-main">
         <Toolbar />
         {children}
       </Box>

@@ -1,5 +1,14 @@
 import React from "react";
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Box, Typography } from "@mui/material";
+import {
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Box,
+  Typography,
+} from "@mui/material";
+import "./SidebarList.scss";
 
 interface SidebarListProps {
   sidebarItems: { text: string; icon: React.ReactNode }[];
@@ -8,26 +17,17 @@ interface SidebarListProps {
 
 const SidebarList: React.FC<SidebarListProps> = ({ sidebarItems, t }) => (
   <div className="sidebar-list-root">
-    <Box sx={{ px: 2, py: 1, mx: 1 }}>
+    <Box className="sidebar-list-box">
       <Typography variant="h5" className="sidebar-title">
         {t("coligo")}
       </Typography>
     </Box>
     <List>
       {sidebarItems.map(({ text, icon }, index) => (
-        <ListItem
-          key={text}
-          disablePadding
-          className="sidebar-list-item"
-        >
+        <ListItem key={text} disablePadding className="sidebar-list-item">
           <ListItemButton className={index === 0 ? "active-link" : undefined}>
-            <ListItemIcon className="sidebar-list-icon">
-              {icon}
-            </ListItemIcon>
-            <ListItemText
-              primary={t(text)}
-              className="sidebar-list-text"
-            />
+            <ListItemIcon className="sidebar-list-icon">{icon}</ListItemIcon>
+            <ListItemText primary={t(text)} className="sidebar-list-text" />
           </ListItemButton>
         </ListItem>
       ))}
@@ -35,4 +35,4 @@ const SidebarList: React.FC<SidebarListProps> = ({ sidebarItems, t }) => (
   </div>
 );
 
-export default SidebarList; 
+export default SidebarList;

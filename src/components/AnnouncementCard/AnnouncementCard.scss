@@ -1,0 +1,38 @@
+.announcement-card {
+  display: flex;
+
+  &__left {
+    display: flex;
+    min-width: 220px;
+  }
+
+  &__avatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .name {
+      font-weight: bold;
+    }
+    .subject {
+      color: #888;
+      font-size: 15px;
+    }
+  }
+
+  &__message {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    border-left: 2px solid #e0e0e0;
+    padding-left: 16px;
+    color: #666;
+    font-size: 14px;
+  }
+}

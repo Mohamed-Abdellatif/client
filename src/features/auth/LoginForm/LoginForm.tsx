@@ -5,6 +5,7 @@ import { login } from "../AuthSlice/authSlice";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
+import "./LoginForm.scss";
 
 const LoginForm = () => {
   const { t } = useTranslation();
@@ -31,7 +32,7 @@ const LoginForm = () => {
         {loading ? <CircularProgress size={24} /> : t("login_button")}
       </Button>
       {error && (
-        <Typography color="error" mt={2}>
+        <Typography color="error" className="login-form-error">
           {t("login_failed")}
         </Typography>
       )}
