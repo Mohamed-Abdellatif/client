@@ -22,7 +22,7 @@ export interface SidebarProps {
 
 // Announcement item
 export interface Announcement {
-  id: number;
+  _id: number;
   name: string;
   subject: string;
   avatar: string;
@@ -31,7 +31,8 @@ export interface Announcement {
 
 // Due item
 export interface DueItem {
-  id: number;
+  
+  _id: number;
   type: string;
   course: string;
   details: string;

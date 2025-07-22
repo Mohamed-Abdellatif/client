@@ -9,7 +9,7 @@ jest.mock('react-i18next', () => ({
 
 describe('DueItemCard', () => {
   const mockItem = {
-    id: 1,
+    _id: 1,
     type: 'Quiz',
     course: 'Math',
     details: 'Chapter 1',

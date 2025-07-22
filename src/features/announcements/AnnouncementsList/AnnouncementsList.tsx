@@ -1,46 +1,33 @@
-import { Paper, Typography } from "@mui/material";
+import { CircularProgress, Paper, Typography } from "@mui/material";
 import GenericList from "../../../components/GenericList/GenericList";
 import GenericCard from "../../../components/GenericCard/GenericCard";
-import AnnouncmentCard from "../../../components/AnnouncmentCard/AnnouncmentCard";
+import AnnouncementCard from "../../../components/AnnouncementCard/AnnouncementCard";
 import { useTranslation } from "react-i18next";
-
-const announcements = [
-  {
-    id: 1,
-    name: "Mr.Ahmed Mostafa",
-    subject: "Math 101",
-    avatar: "A",
-    message:
-      "Hi my hero! I just want you ready to our exams and focus on remaining assessments to gain more grades, good luck my warriors! 😊",
-  },
-  {
-    id: 2,
-    name: "Mrs.Salma Ahmed",
-    subject: "Physics 02",
-    avatar: "S",
-    message:
-      "Hello my students, I want to announce that the next quiz will be within 3 days and will cover the whole unit2. Add and subtract numbers. Study hard! Good luck! 💪",
-  },
-  {
-    id: 3,
-    name: "School management",
-    subject: "Management",
-    avatar: "M",
-    message:
-      "We appreciate your outstanding learning! What really made my day is the flag call I had earlier this morning to 850 students at Goodwyn Junior High School in Tagamo3, Egypt. I just want to convey to all our super students to focus on remaining assessments to gain more grades, good luck my superstars!",
-  },
-  {
-    id: 4,
-    name: "Events Manager",
-    subject: "Events",
-    avatar: "E",
-    message:
-      "Hello! Can’t wait for our upcoming trip on the next weekend. The trip will be to Dreampark and Pyramids. To book your seat please contact your class teacher.",
-  },
-];
+import { useAnnouncementQuery } from "../../../queries/useAnnouncementsQuery";
+import type { Announcement } from "../../../types";
 
 const AnnouncementsList = () => {
+  const { data: announcements, isLoading } = useAnnouncementQuery();
   const { t } = useTranslation();
+  if (isLoading) {
+    return (
+      <Paper elevation={3} sx={{ p: 2, minHeight: 350 }}>
+        <Typography variant="h6" fontWeight="bold" gutterBottom>
+          <CircularProgress size={44} />
+        </Typography>
+      </Paper>
+    );
+  }
+  if (!announcements || announcements.length === 0) {
+    return (
+      <Paper elevation={3} sx={{ p: 2, minHeight: 350 }}>
+        <Typography variant="h6" fontWeight="bold" gutterBottom>
+          {t("noAnnouncements")}
+        </Typography>
+      </Paper>
+    );
+  }
+  
   return (
     <Paper elevation={3} sx={{ p: 2, minHeight: 350 }}>
       <Typography variant="h6" fontWeight="bold" gutterBottom>
@@ -48,9 +35,13 @@ const AnnouncementsList = () => {
       </Typography>
       <GenericList
         items={announcements}
-        renderItem={(announcment, idx, arr) => (
-          <GenericCard key={announcment.id} showDivider={idx < arr.length - 1} dividerProps={{ variant: "inset" }}>
-            <AnnouncmentCard announcment={announcment} />
+        renderItem={(announcement: Announcement, idx, arr) => (
+          <GenericCard
+            key={announcement?._id}
+            showDivider={idx < arr.length - 1}
+            dividerProps={{ variant: "inset" }}
+          >
+            <AnnouncementCard announcement={announcement} />
           </GenericCard>
         )}
       />

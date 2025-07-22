@@ -23,5 +23,7 @@
   "due": "Due:",
   "start_quiz": "Start Quiz",
   "solve_assignment": "Solve Assignment",
-  "announcements": "Announcements"
+  "announcements": "Announcements",
+  "noAnnouncements": "No announcements available",
+  "noDueItems": "No due items available"
 } 
