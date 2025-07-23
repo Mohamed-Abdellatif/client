@@ -36,3 +36,27 @@
     font-size: 14px;
   }
 }
+
+@media (max-width: 1024px) {
+  .announcement-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 12px;
+    padding: 12px !important;
+  }
+  .announcement-card__left {
+    min-width: 0;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    padding: 0;
+  }
+  .announcement-card__message {
+    border-left: none;
+    padding-left: 0;
+    font-size: 15px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}

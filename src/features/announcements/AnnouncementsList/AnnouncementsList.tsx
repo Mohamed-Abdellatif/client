@@ -11,7 +11,7 @@ import NoDataPaper from "../../../components/NoDataPaper/NoDataPaper";
 import "./AnnouncementsList.scss";
 
 import { useEffect } from 'react';
-import { useSocket } from "../../../socket/useSocket";
+import { useSocket } from "../../../socket/SocketProvider";
 
 const AnnouncementsList = () => {
   const { data: announcements, isLoading, refetch } = useAnnouncementQuery();

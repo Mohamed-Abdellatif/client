@@ -11,3 +11,50 @@
   padding-right: 24px !important;
   padding-bottom: 24px !important;
 }
+
+$breakpoints: (
+  xs: 0px,
+  sm: 600px,
+  md: 900px,
+  lg: 1200px,
+  xl: 1536px
+);
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// Responsive: shrink navbar on small screens
+@include respond-to(sm) {
+  .navbar-appbar {
+    min-height: 48px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  .navbar-title {
+    font-size: 1rem !important;
+  }
+  .main-layout-main {
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+  }
+}
+
+// Responsive: hide sidebar on md and smaller, main content full width
+@include respond-to(md) {
+  .sidebar-nav {
+    display: none !important;
+  }
+  .main-layout-main {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+  }
+  // Responsive: add margin to main content on sm and md
+  .main-layout-main {
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+  }
+}

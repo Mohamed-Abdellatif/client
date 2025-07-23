@@ -7,3 +7,11 @@
   align-items: flex-start !important;
   background: #f8fcff !important;
 }
+
+@media (min-width: 1440px) {
+  .exams-poster-paper {
+    width: 99% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}

@@ -1,4 +1,18 @@
 .announcements-list-paper {
   padding: 16px !important;
   min-height: 300px !important;
+}
+
+@media (min-width: 1440px) {
+  .announcements-list-paper {
+    width: 920px!important;
+    
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .announcements-list-paper {
+    margin-bottom: 24px !important;
+  }
 } 

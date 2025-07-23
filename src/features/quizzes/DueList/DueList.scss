@@ -7,3 +7,12 @@
   flex-direction: column !important;
   align-items: flex-start !important;
 }
+
+@media (min-width: 1440px) {
+  .due-list-paper {
+    max-width: 300px !important;
+    width: 100% !important;
+    margin-left: 24px !important;
+    margin-right: 0 !important;
+  }
+}
