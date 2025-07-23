@@ -23,7 +23,7 @@ describe('DueItemCard', () => {
     );
     expect(screen.getByText('Quiz')).toBeInTheDocument();
     expect(screen.getByText('course Math')).toBeInTheDocument();
-    expect(screen.getByText('Chapter 1')).toBeInTheDocument();
+    expect(screen.getByText('topic Chapter 1')).toBeInTheDocument();
     expect(screen.getByText('due 2024-06-01')).toBeInTheDocument();
     expect(screen.getByText('start_quiz')).toBeInTheDocument();
   });
