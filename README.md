@@ -2,6 +2,10 @@
 
 [![Watch the demo](https://img.youtube.com/vi/YTzDisvYtJ0/maxresdefault.jpg)](https://www.youtube.com/watch?v=YTzDisvYtJ0)
 
+## 🚀 Live Demo
+
+[students-dashboard-lemon.vercel.app](https://students-dashboard-lemon.vercel.app)
+
 A sleek, responsive student dashboard built with React 19.1, TypeScript 5.8, Vite 7, and MUI 7.2. Developed as a solution to the Anyware Software Full Stack Challenge, this client offers a modular, scalable architecture with internationalization, protected routing, and robust component design.
 
 ---
